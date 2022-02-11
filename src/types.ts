@@ -1,7 +1,7 @@
 export const types = {
   build: {
     description: 'Changes that affect the build system or external dependencies (example scopes: gulp, pnpm)',
-    emoji: '🏗 ',
+    emoji: '🏗️',
     title: 'Builds'
   },
   chore: {
@@ -36,7 +36,7 @@ export const types = {
   },
   refactor: {
     description: 'A code change that neither fixes a bug nor adds a feature',
-    emoji: '♻️ ',
+    emoji: '🧐',
     title: 'Code Refactoring'
   },
   revert: {
