@@ -1,3 +1,4 @@
+// commitizen.d.ts
 declare module 'commitizen'
 
 declare global {
