@@ -1,13 +1,13 @@
-// commitizen.d.ts
+// Commitizen.d.ts
 declare module 'commitizen'
 
 declare global {
   namespace NodeJS {
-    interface ProcessEnv {
-      GITHUB_AUTH_TOKEN: string
-      NODE_ENV: 'development' | 'production'
-      PORT?: string
-      PWD: string
+    interface ProcessEnvironment {
+      readonly GITHUB_AUTH_TOKEN: string
+      readonly NODE_ENV: 'development' | 'production'
+      readonly PORT?: string
+      readonly PWD: string
     }
   }
 }
