@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "git-cz-emoji",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "Commitizen configuration that follows the Conventional Changelog format with emoji support",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
