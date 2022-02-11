@@ -29,8 +29,8 @@
 </div>
 <br/>
 <div align="center">
-  <a href="https://www.npmjs.com/package/git-cz-emoji" title="Version 1.0.2" target="_blank">
-    <img alt="Version: 1.0.2" src="https://img.shields.io/badge/version-1.0.2-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
+  <a href="https://www.npmjs.com/package/git-cz-emoji" title="Version 1.1.16" target="_blank">
+    <img alt="Version: 1.1.16" src="https://img.shields.io/badge/version-1.1.16-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/npm/configs/git-cz-emoji/-/commits/master" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/npm/config/git-cz-emoji?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
@@ -65,9 +65,10 @@
 - [Requirements](#requirements)
   - [Developer Requirements](#developer-requirements)
 - [Preview](#preview)
+- [Format](#format)
 - [Installation](#installation)
-  - [Globally](#globally)
-  - [Locally](#locally)
+  - [Installing Globally](#installing-globally)
+  - [Installing Locally](#installing-locally)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -106,19 +107,28 @@ npm run help
 
 ## Preview
 
-After you set this configuration up, when you do `git commit` you will be prompted with a menu like the one below. It will prompt you for the type of commit, ask for a subject, and a few other options. The whole process guides your commits and your repository's users commits to come out consistently in such a way that you can generate automated CHANGELOG.md files. **[semantic-release-config](https://github.com/ProfessorManhattan/semantic-release-config)** and **[conventional-changelog-emoji-config](https://github.com/ProfessorManhattan/conventional-changelog-emoji-config)** rely on this Commitizen configuration to generate commit messages that are in a consistent format.
+After you set this configuration up, when you do `git commit` you will be prompted with an interactive menu. It will prompt you for the type of commit, ask for a subject, and a few other options. The whole process guides your commits and your repository's users commits to come out consistently in such a way that you can generate automated CHANGELOG.md files. **[semantic-release-config](https://github.com/ProfessorManhattan/semantic-release-config)** and **[conventional-changelog-emoji-config](https://github.com/ProfessorManhattan/conventional-changelog-emoji-config)** rely on this Commitizen configuration to generate commit messages that are in a consistent format.
 
-```shell
- Select the type of change that you're committing: (Use arrow keys)
-❯ ✨  Feat:              Introducing new features.
-  🐛  Bug:               Fixing a bug.
-  📝  Docs:              Writing docs.
-  🎨  Style:             Improving structure / format of the code.
-  💄  UI:                Updating the UI and style files.
-  🚑  Quickfix:          Critical hotfix.
-  ⚡️  Pref:              Improving performance.
-(Move up and down to reveal more choices)
+Some of your commit message titles may look something like:
+
+```md
+- ✨ feat: add signup pages from (#11)
+- 🐛 fix(test): get browser width for android devices
+- ♻️ refactor(sc): refactor to styled component
+- 🧪 test: add test for splitmerge
 ```
+
+<a href="#format" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Format
+
+Format of the commit is below:
+
+```text
+[emoji] [type]([scope]): [commit msg] (#[issue number])
+```
+
+_Note:_ `scope` & `issue number` are optional.
 
 <a href="#installation" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -126,7 +136,7 @@ After you set this configuration up, when you do `git commit` you will be prompt
 
 First, ensure **[Commitizen](https://github.com/commitizen/cz-cli)** (a.k.a. `git-cz`) is installed. Then, add this package to your system either globally or locally.
 
-### Globally
+### Installing Globally
 
 You can install this library globally and have it run on all projects using the following method. First, install the package globally:
 
@@ -140,7 +150,7 @@ After that, configure Commitizen to use the library by default:
 echo '{ "path": "cz-conventional-emoji" }' > ~/.czrc
 ```
 
-### Locally
+### Installing Locally
 
 To install the library locally (so that the configuration is portable with your repository), add it to your `devDependencies` by running:
 
