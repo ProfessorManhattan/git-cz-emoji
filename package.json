@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "git-cz-emoji",
-  "version": "1.0.2",
+  "version": "1.1.4",
   "description": "Commitizen configuration that follows the Conventional Changelog format with emoji support",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -17,8 +17,7 @@
   "type": "commonjs",
   "main": "dist/main.js",
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ],
   "scripts": {
     "build": "task npm:build:tsconfig",
@@ -44,7 +43,6 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "^16.11.6",
     "@washingtondc/development": "latest",
-    "cz-emoji-conventional": "^1.0.1",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
