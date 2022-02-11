@@ -1,6 +1,6 @@
 import { configLoader } from 'commitizen'
 import engine from './engine'
-import { types as conventionalCommitTypes } from './types'
+import { commitProfile, commitTypes, types as conventionalCommitTypes } from './types'
 
 const config = configLoader.load() || {}
 const options = {
@@ -37,5 +37,8 @@ const options = {
     })
   } catch {}
 })(options)
+
+export const CommitProfile = commitProfile
+export type CommitTypes = commitTypes
 
 module.exports = engine(options)
