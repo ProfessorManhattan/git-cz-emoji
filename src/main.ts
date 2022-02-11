@@ -40,4 +40,4 @@ const options = {
 
 export const CommitProfile = commitProfile
 
-module.exports = engine(options)
+export default engine(options)
