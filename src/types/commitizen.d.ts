@@ -1,2 +1,2 @@
-// commitizen.d.ts
+// Commitizen.d.ts
 declare module 'commitizen'
