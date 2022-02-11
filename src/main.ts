@@ -1,8 +1,8 @@
 import { configLoader } from 'commitizen'
 import engine from './engine'
-import conventionalCommitTypes = require('./types.json')
+import { types as conventionalCommitTypes } from './types'
 
-const config = configLoader.load()
+const config = configLoader.load() || {}
 const options = {
   defaultBody: process.env.CZ_BODY || config.defaultBody,
   defaultIssues: process.env.CZ_ISSUES || config.defaultIssues,
@@ -16,7 +16,7 @@ const options = {
     100,
   maxLineWidth:
     (process.env.CZ_MAX_LINE_WIDTH && Number.parseInt(process.env.CZ_MAX_LINE_WIDTH)) || config.maxLineWidth || 100,
-  types: conventionalCommitTypes.types
+  types: conventionalCommitTypes
 }
 
 ;(function (options) {
@@ -38,4 +38,4 @@ const options = {
   } catch {}
 })(options)
 
-module.exports = (engine as any)(options)
+module.exports = engine(options)
