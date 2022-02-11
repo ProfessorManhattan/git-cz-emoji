@@ -1,4 +1,4 @@
-export const commitProfile = {
+export const CommitProfile = {
   bodyLineLength: 100,
   maxSubjectLength: 72,
   types: {
@@ -121,7 +121,7 @@ export const commitProfile = {
   ]
 }
 
-export type commitTypes =
+export type CommitTypes =
   | 'build'
   | 'ci'
   | 'docs'
@@ -135,4 +135,4 @@ export type commitTypes =
   | 'wip'
   | 'chore'
 
-export const types = commitProfile.types
+export const types = CommitProfile.types
