@@ -8,7 +8,7 @@ readme = "README.md"
 homepage = "https://megabyte.space"
 documentation = "https://megabyte.space/docs/npm/config"
 repository = "https://github.com/ProfessorManhattan/git-cz-emoji"
-keywords = [""]
+keywords = ["config", "mblabs", "megabytelabs", "professormanhattan", "washingtondc"]
 include = ["docs/CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",

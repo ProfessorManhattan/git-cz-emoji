@@ -1,8 +1,85 @@
 {
+  "private": false,
+  "name": "git-cz-emoji",
+  "version": "1.0.2",
+  "description": "Commitizen configuration that follows the Conventional Changelog format with emoji support",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/git-cz-emoji.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/npm/configs/git-cz-emoji/-/issues"
+  },
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "build": "task npm:build:tsconfig",
+    "help": "task --menu",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash start.sh",
+    "test": "task npm:test:none"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional"
+    }
+  },
+  "typings": "dist/main.d.ts",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commitizen": "^4.0.3",
+    "conventional-commit-types": "^3.0.0",
+    "lodash.map": "^4.5.1",
+    "longest": "^2.0.1",
+    "right-pad": "^1.0.1",
+    "tslib": "^2.3.1",
+    "word-wrap": "^1.0.3"
+  },
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/node": "^16.11.6",
+    "@washingtondc/development": "latest",
+    "cz-emoji-conventional": "^1.0.1",
+    "esbuild": "^0.12.29",
+    "esbuild-node-externals": "^1.3.0",
+    "eslint-config-strict-mode": "latest",
+    "glob": "^7.2.0",
+    "handlebars-helpers": "^0.10.0",
+    "jest-preset-ts": "^1.0.0",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest"
+  },
+  "keywords": [
+    "config",
+    "mblabs",
+    "megabytelabs",
+    "professormanhattan",
+    "washingtondc"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "engineStrict": true,
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/33613062/packages/npm/",
+    "access": "public"
+  },
   "blueprint": {
     "customPackageName": "git-cz-emoji",
     "description": "Commitizen configuration that follows the Conventional Changelog format with emoji support",
+    "github_id": "R_kgDOG06NYg",
+    "gitlab_group_id": "",
+    "gitlab_project_id": "33613062",
     "group": "npm",
     "name": "Conventional Emoji Commitizen Config",
     "overview": "This project is a shareable Commitizen configuration. It is designed to work alongside git workflows that implement the [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) format, [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), and adds support for emojis (important for UX). This project borrows heavily from [cz-conventional-emoji](https://github.com/gaoac/cz-conventional-emoji). It modifies it to include more aethestically pleasing emojis as well as to work seamlessly with the other configurations it is meant to work alongside, namely:\n\n* **[semantic-release-config](https://github.com/ProfessorManhattan/semantic-release-config)** - An all-in-one Semantic Release plugin that supports NPM, Go, Python, and Docker projects (among a few others)\n* **[conventional-changelog-emoji-config](https://github.com/ProfessorManhattan/conventional-changelog-emoji-config)** - Configuration for generating CHANGELOG.md files that look good on both GitHub and GitLab as well as accomodate situations where the GitHub/GitLab repository are mirrored",
@@ -14,10 +91,6 @@
     "subgroup": "config",
     "subheader_description": "A Conventional Commitizen configuration with better default emojis!",
     "title": "The Conventional Commitizen Config with Emoji Support"
-  },
-  "bugs": {
-    "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/npm/configs/git-cz-emoji/-/issues"
   },
   "changelog": {
     "displayTypes": [
@@ -35,40 +108,44 @@
     ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-emoji-conventional"
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode",
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-shadow": "warn",
+      "@typescript-eslint/no-var-requires": "warn",
+      "capitalized-comments": "warn",
+      "filenames/match-regex": "warn",
+      "fp/no-loops": "warn",
+      "fp/no-mutation": "warn",
+      "func-names": "warn",
+      "func-style": "warn",
+      "functional/immutable-data": "warn",
+      "functional/no-let": "warn",
+      "functional/no-loop-statement": "warn",
+      "functional/no-try-statement": "warn",
+      "id-length": "warn",
+      "max-len": "warn",
+      "max-lines-per-function": "warn",
+      "no-empty": "warn",
+      "no-magic-numbers": "warn",
+      "no-param-reassign": "warn",
+      "no-secrets/no-secrets": "warn",
+      "no-shadow": "warn",
+      "no-undefined": "warn",
+      "node/no-missing-require": "warn",
+      "prefer-arrow/prefer-arrow-functions": "warn",
+      "prefer-destructuring": "warn",
+      "promise/always-return": "warn",
+      "promise/catch-or-return": "warn",
+      "radix": "warn",
+      "require-unicode-regexp": "warn",
+      "sonarjs/cognitive-complexity": "warn",
+      "sonarjs/no-nested-template-literals": "warn",
+      "unicorn/consistent-destructuring": "warn",
+      "unicorn/prefer-module": "warn"
     }
   },
-  "dependencies": {
-    "tslib": "^2.3.1"
-  },
-  "description": "Commitizen configuration that follows the Conventional Changelog format with emoji support",
-  "devDependencies": {
-    "@commitlint/config-conventional": "^16.0.0",
-    "@types/node": "^16.11.6",
-    "@washingtondc/development": "latest",
-    "cz-emoji-conventional": "^1.0.1",
-    "esbuild": "^0.12.29",
-    "esbuild-node-externals": "^1.3.0",
-    "eslint-config-strict-mode": "latest",
-    "glob": "^7.2.0",
-    "handlebars-helpers": "^0.10.0",
-    "jest-preset-ts": "^1.0.0",
-    "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest"
-  },
-  "engineStrict": true,
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
-  },
-  "files": [
-    "dist",
-    "lib"
-  ],
   "funding": [
     {
       "type": "opencollective",
@@ -79,7 +156,6 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
-  "homepage": "https://megabyte.space",
   "jest": {
     "preset": "jest-preset-ts",
     "reporters": [
@@ -96,14 +172,6 @@
       ]
     ]
   },
-  "keywords": [
-    "config",
-    "mblabs",
-    "megabytelabs",
-    "professormanhattan",
-    "washingtondc"
-  ],
-  "license": "MIT",
   "lint-staged": {
     "**/!(logo).(jpg|png)": [
       "task image:compress --"
@@ -140,8 +208,6 @@
       "task image:compress --"
     ]
   },
-  "main": "dist/main.js",
-  "name": "git-cz-emoji",
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -164,11 +230,6 @@
     }
   },
   "prettier": "prettier-config-sexy-mode",
-  "private": false,
-  "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
-    "access": "public"
-  },
   "release": {
     "branches": [
       "main",
@@ -184,23 +245,5 @@
       }
     ],
     "extends": "semantic-release-config"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/git-cz-emoji.git"
-  },
-  "scripts": {
-    "build": "task npm:build:tsconfig",
-    "commit": "git-cz",
-    "format": "prettier --write *.js",
-    "help": "task --menu",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "semantic-release": "semantic-release",
-    "start": "bash start.sh",
-    "test": "task npm:test:none"
-  },
-  "type": "commonjs",
-  "typings": "dist/main.d.ts",
-  "version": "1.0.2"
+  }
 }
