@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "git-cz-emoji"
-version = "1.1.16"
+version = "1.1.24"
 description = "Commitizen configuration that follows the Conventional Changelog format with emoji support"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
 license = "MIT"

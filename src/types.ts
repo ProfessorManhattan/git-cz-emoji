@@ -135,4 +135,4 @@ export type CommitTypes =
   | 'wip'
   | 'chore'
 
-export const types = CommitProfile.types
+export const { types } = CommitProfile
