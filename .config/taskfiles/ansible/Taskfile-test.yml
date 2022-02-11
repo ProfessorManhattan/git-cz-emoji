@@ -46,7 +46,7 @@ tasks:
       - :install:software:sentry
       - task: :install:python:requirements
         env:
-          INSTALL_OPTIONS: --no-dev
+          INSTALL_OPTIONS: '--no-dev'
     log:
       error: Encountered error while testing the Ansible playbook locally
       start: Testing the Ansible playbook locally
@@ -389,7 +389,7 @@ tasks:
     cmds:
       - task: molecule:virtualbox:{{if .CLI_ARGS}}cli{{else}}prompt{{end}}
 
-  # yYmllint disable rule:truthy
+  # yamllint disable rule:truthy
   molecule:virtualbox:cli:
     deps:
       - molecule:dependencies
@@ -515,7 +515,7 @@ tasks:
         PY_COLORS=0 {{.MOLECULE_TEST_OPTIONS}} {{.PYTHON_HANDLE}}molecule test 2&>1 | \
         tee '{{.MOLECULE_LOGS_PATH}}/{{.MOLECULE_DATE}}-default.txt' || EXIT_CODE=$?
 
-  # yYmllint enable rule:truthy
+  # yamllint enable rule:truthy
   molecule:virtualbox:prompt:
     vars:
       MARKDOWN: |
@@ -694,7 +694,7 @@ tasks:
     deps:
       - task: :install:python:requirements
         vars:
-          INSTALL_OPTIONS: --no-dev
+          INSTALL_OPTIONS: '--no-dev'
       - :install:software:sentry
       - :install:software:sshpass
       - :install:software:vagrant

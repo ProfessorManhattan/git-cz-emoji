@@ -60,9 +60,9 @@ tasks:
       GITLAB_REPO:
         sh: jq -r '.blueprint.repository.gitlab' package.json
     log:
-      error: Error converting `{{.BASENAME}}` to a submodule
       start: Converting `{{.BASENAME}}` directory into a submodule
       success: Converted the `{{.BASENAME}}` directory to a submodule
+      error: Error converting `{{.BASENAME}}` to a submodule
     cmds:
       - git init
       - git remote add origin "{{.GITLAB_REPO}}"
@@ -92,9 +92,9 @@ tasks:
       GITLAB_REPO:
         sh: jq -r '.blueprint.repository.gitlab' package.json
     log:
-      error: Error encountered while converting `{{.BASENAME}}` into a sub-repo
       start: Converting `{{.BASENAME}}` into a sub-repo
       success: Converted `{{.BASENAME}}` into a sub-repo
+      error: Error encountered while converting `{{.BASENAME}}` into a sub-repo
     cmds:
       - rm -rf .git
       - |
@@ -106,9 +106,9 @@ tasks:
 
   push:all:
     log:
-      error: Encountered error while running `git push all master --force || git push origin master`
       start: Running `git push all master --force || git push origin master`
       success: Successfully ran `git push all master --force || git push origin master`
+      error: Encountered error while running `git push all master --force || git push origin master`
     cmds:
       - |
         if [[ "$FULLY_AUTOMATED_TASKS" == 'true' ]]; then
@@ -120,13 +120,13 @@ tasks:
       - :install:software:git
       - :install:software:jq
       - :install:software:subrepo
-    desc: Configure the git remote `origin` to point to GitLab and the git remote `all` to point to GitLab and GitHub
+    desc: Configure the the `origin`, `gitlab`, `github`, and `all` git remotes
     summary: |
-      # Configure git remote
+      # Configure Git Remotes
 
       This task will set the origin to the GitLab repository associated with this project. It will then also create
       a remote named `all` which will point to both the GitLab repository and the GitHub mirror. You can then
-      push to both repositories at the same time by running `git push origin master`.
+      push to both repositories at the same time by running `git push all master`.
 
       **Example usage:**
       `task git:remotes`
@@ -137,9 +137,9 @@ tasks:
         sh: jq -r '.blueprint.repository.gitlab' package.json | sed 's/^https:\/\//git@/' | sed 's/gitlab.com\//gitlab.com:/'
     run: once
     log:
-      error: Error setting git remotes
       start: Setting up git remotes
       success: Git remotes are set up
+      error: Error setting git remotes
     cmds:
       - git init -q
       - |
@@ -222,9 +222,9 @@ tasks:
       TOP_LEVEL:
         sh: git rev-parse --show-toplevel
     log:
-      error: Error encountered while attempting to remove submodules
       start: Attempting to remove submodules
       success: Successfully removed submodules
+      error: Error encountered while attempting to remove submodules
     cmds:
       - |
         if [ -f '.gitmodules' ]; then
