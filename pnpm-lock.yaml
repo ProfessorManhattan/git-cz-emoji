@@ -20,7 +20,7 @@ specifiers:
   jest-preset-ts: latest
   prettier-config-sexy-mode: latest
   semantic-release-config: latest
-  tslib: ^2.3.1
+  tslib: latest
   typescript: ^4.5.5
   word-wrap: ^1.2.3
 
@@ -567,7 +567,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.16.7
+      '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.16.7_@babel+core@7.12.9
     dev: true
@@ -4479,8 +4479,6 @@ packages:
       typescript: 4.5.5
       yarnhook: 0.5.1
     transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
       - supports-color
     dev: true
 
@@ -6790,6 +6788,8 @@ packages:
       semantic-release: 19.0.2
       tslib: 2.3.1
     transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
       - encoding
       - supports-color
     dev: true
@@ -9921,6 +9921,9 @@ packages:
       commitizen: 4.2.4
       tslib: 2.3.1
       word-wrap: 1.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
     dev: true
 
   /git-log-parser/1.2.0:
@@ -16893,6 +16896,8 @@ packages:
       tslib: 2.3.1
       yaml: 1.10.2
     transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
       - encoding
       - supports-color
     dev: true

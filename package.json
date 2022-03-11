@@ -45,9 +45,10 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commitizen": "^4.2.4",
-    "tslib": "^2.3.1",
+    "tslib": "latest",
     "word-wrap": "^1.2.3"
   },
+  "optionalDependencies": {},
   "devDependencies": {
     "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "^16.11.6",
