@@ -6,3 +6,7 @@ install:software:jq
 install:npm:husky
 install:npm:commitlint
 install:npm:commitizen
+install:npm:commitizen
+install:npm:commitlint
+install:npm:husky
+install:software:jq
