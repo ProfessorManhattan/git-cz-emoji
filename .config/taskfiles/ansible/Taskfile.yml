@@ -156,7 +156,12 @@ tasks:
           CLI_ARGS: meta/main.yml
 
   mod-ansible-autodoc:
+    todo: Add ansible-autodoc-fork to the includes of the package
     cmds:
+      - |
+        if [ -n "$CI" ]; then
+          pip3 install ansible-autodoc-fork
+        fi
       - task: mod-ansible-autodoc:generate
       - task: mod-ansible-autodoc:variables
 
@@ -168,7 +173,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
