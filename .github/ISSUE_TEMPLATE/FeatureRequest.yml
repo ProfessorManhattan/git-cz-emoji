@@ -26,6 +26,7 @@ body:
     validations:
       required: false
 
+  # yYmllint disable rule:line-length
   - attributes:
       value: |
         ## :heart: Love Megabyte Labs?
