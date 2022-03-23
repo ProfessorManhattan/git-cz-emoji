@@ -11,7 +11,11 @@ vars:
       if [ -n "$CI" ]; then
         echo ''
       else
-        echo 'unbuffer {{.PYTHON_HANDLE}}'
+        if type unbuffer &> /dev/null; then
+          echo 'unbuffer {{.PYTHON_HANDLE}}'
+        else
+          echo '{{.PYTHON_HANDLE}}'
+        fi
       fi
 
 tasks:
@@ -576,7 +580,7 @@ tasks:
     cmds:
       - task: molecule:virtualbox:{{if .CLI_ARGS}}cli{{else}}prompt{{end}}
 
-  # yYmllint disable rule:truthy
+  # yamllint disable rule:truthy
   molecule:virtualbox:cli:
     deps:
       - molecule:dependencies
@@ -711,7 +715,7 @@ tasks:
         vars:
           RESULTS_FILE: '{{.MOLECULE_LOGS_PATH}}/{{.MOLECULE_DATE}}-default.txt'
 
-  # yYmllint enable rule:truthy
+  # yamllint enable rule:truthy
   molecule:virtualbox:prompt:
     vars:
       MARKDOWN: |
