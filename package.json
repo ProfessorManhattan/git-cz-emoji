@@ -46,22 +46,22 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commitizen": "^4.2.4",
-    "tslib": "latest",
-    "word-wrap": "^1.2.3"
+    "word-wrap": "^1.2.3",
+    "tslib": "latest"
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "latest",
     "@types/node": "^16.11.6",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "@commitlint/config-conventional": "latest",
+    "handlebars-helpers": "latest"
   },
   "keywords": [
     "commit",
@@ -91,7 +91,7 @@
     "name": "Conventional Emoji Commitizen Config",
     "overview": "This project is a shareable Commitizen configuration. It is designed to work alongside git workflows that implement the [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) format, [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), and adds support for emojis (important for UX). This project borrows heavily from [cz-conventional-emoji](https://github.com/gaoac/cz-conventional-emoji). It modifies it to include more aethestically pleasing emojis as well as to work seamlessly with the other configurations it is meant to work alongside, namely:\n\n* **[semantic-release-config](https://github.com/ProfessorManhattan/semantic-release-config)** - An all-in-one Semantic Release plugin that supports NPM, Go, Python, and Docker projects (among a few others)\n* **[conventional-changelog-emoji-config](https://github.com/ProfessorManhattan/conventional-changelog-emoji-config)** - Configuration for generating CHANGELOG.md files that look good on both GitHub and GitLab as well as accomodate situations where the GitHub/GitLab repository are mirrored",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/git-cz-emoji",
+      "github": "https://github.com/megabyte-labs/git-cz-emoji",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/git-cz-emoji"
     },
     "slug": "git-cz-emoji",
@@ -110,9 +110,7 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": [],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
