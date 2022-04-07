@@ -92,7 +92,7 @@ tasks:
           NPM_PACKAGE_VERSION: '{{.NPM_PACKAGE_VERSION}}'
           SYSTEM: freebsd
       # - task: build:fpm:compile
-      #   vars:
+      #   vVrs:
       #     ARCHITECTURE: amd64
       #     FILE_EXTENSION:
       #     FPM_TARGET: pacman
@@ -272,14 +272,14 @@ tasks:
       - node-prune
 
   publish:
-    vars:
-      REGISTRY_ADDRESS:
-        sh: jq -r '.publishConfig["@megabyte:registry"]' package.json
     summary: |
       Following shows how to configure to publish to GitLab if needed in future:
 
       npm config set -- '{{.REGISTRY_ADDRESS}}:_authToken' '${GITLAB_TOKEN}'
       npm publish
+    vars:
+      REGISTRY_ADDRESS:
+        sh: jq -r '.publishConfig["@megabyte:registry"]' package.json
     cmds:
       - 'true'
 
