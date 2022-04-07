@@ -92,7 +92,7 @@ tasks:
           NPM_PACKAGE_VERSION: '{{.NPM_PACKAGE_VERSION}}'
           SYSTEM: freebsd
       # - task: build:fpm:compile
-      #   vars:
+      #   vVrs:
       #     ARCHITECTURE: amd64
       #     FILE_EXTENSION:
       #     FPM_TARGET: pacman
@@ -272,9 +272,6 @@ tasks:
       - node-prune
 
   publish:gitlab:
-    env:
-      BACKUP_PKG:
-        sh: mktemp
     vars:
       PKG_NAME:
         sh: jq -r '.name' package.json
@@ -282,6 +279,9 @@ tasks:
         sh: jq -r '.publishConfig["@gitlab:registry"]' package.json
       VERSION:
         sh: jq -r '.version' package.json
+    env:
+      BACKUP_PKG:
+        sh: mktemp
     cmds:
       - npm config set -- '{{.REGISTRY_ADDRESS}}:_authToken' '${GITLAB_TOKEN}'
       - cp package.json "$BACKUP_PKG"
