@@ -92,7 +92,7 @@ tasks:
           NPM_PACKAGE_VERSION: '{{.NPM_PACKAGE_VERSION}}'
           SYSTEM: freebsd
       # - task: build:fpm:compile
-      #   vars:
+      #   vVrs:
       #     ARCHITECTURE: amd64
       #     FILE_EXTENSION:
       #     FPM_TARGET: pacman
