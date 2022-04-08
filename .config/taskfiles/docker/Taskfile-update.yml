@@ -68,7 +68,7 @@ tasks:
     status:
       - grep 'org.opencontainers.image.documentation' Dockerfile
 
-  # yYmllint disable rule:line-length
+  # yamllint disable rule:line-length
   # eslint-disable max-len
   labels:update:
     vars:
@@ -100,7 +100,7 @@ tasks:
         {{.CMD_PREFIX}} "s^.*org.opencontainers.image.url.*^LABEL org.opencontainers.image.url=\"{{.URL}}\"^g" Dockerfile
         {{.CMD_PREFIX}} "s^.*org.opencontainers.image.vendor.*^LABEL org.opencontainers.image.vendor=\"{{.ORGANIZATION}}\"^g" Dockerfile
       - rm -f Dockerfile.bak
-  # yYmllint enable rule:line-length
+  # yamllint enable rule:line-length
   # eslint-enable max-len
 
   sort:
