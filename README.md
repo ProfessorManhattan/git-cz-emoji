@@ -67,7 +67,12 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
   - [Developer Requirements](#developer-requirements)
-- [This Repository (Shared Common)](#this-repository-shared-common)
+- [Preview](#preview)
+- [Format](#format)
+- [Installation](#installation)
+  - [Installing Globally](#installing-globally)
+  - [Installing Locally](#installing-locally)
+- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -101,11 +106,81 @@ npm run help
 
 `npm run help` will ensure Bodega is installed and then open an interactive dialog where you can explore and learn about various developer commands.
 
-<a href="#this-repository-shared-common" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+<a href="#preview" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
-## This Repository (Shared Common)
+## Preview
 
-This repository houses files that propagate downstream to project-specific repositories.
+After you set this configuration up, when you do `git commit` you will be prompted with an interactive menu. It will prompt you for the type of commit, ask for a subject, and a few other options. The whole process guides your commits and your repository's users commits to come out consistently in such a way that you can generate automated CHANGELOG.md files. **[semantic-release-config](https://github.com/ProfessorManhattan/semantic-release-config)** and **[conventional-changelog-emoji-config](https://github.com/ProfessorManhattan/conventional-changelog-emoji-config)** rely on this Commitizen configuration to generate commit messages that are in a consistent format.
+
+Some of your commit message titles may look something like:
+
+```md
+- ✨ feat: add signup pages from (#11)
+- 🐛 fix(test): get browser width for android devices
+- ♻️ refactor(sc): refactor to styled component
+- 🧪 test: add test for splitmerge
+```
+
+<a href="#format" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Format
+
+Format of the commit is below:
+
+```text
+[emoji] [type]([scope]): [commit msg] (#[issue number])
+```
+
+_Note:_ `scope` & `issue number` are optional.
+
+<a href="#installation" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Installation
+
+First, ensure **[Commitizen](https://github.com/commitizen/cz-cli)** (a.k.a. `git-cz`) is installed. Then, add this package to your system either globally or locally.
+
+### Installing Globally
+
+You can install this library globally and have it run on all projects using the following method. First, install the package globally:
+
+```shell
+npm install --global cz-conventional-emoji
+```
+
+After that, configure Commitizen to use the library by default:
+
+```shell
+echo '{ "path": "cz-conventional-emoji" }' > ~/.czrc
+```
+
+### Installing Locally
+
+To install the library locally (so that the configuration is portable with your repository), add it to your `devDependencies` by running:
+
+```shell
+npm i -D cz-conventional-emoji
+```
+
+With the library installed locally, you next have to configure `package.json` to point to the configuration by adding a section that should look something like this:
+
+```json
+{
+  "name": "my_node_module_name",
+  ...
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-emoji"
+    },
+  },
+  ...
+}
+```
+
+<a href="#usage" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Usage
+
+Simply use `git cz` instead of `git commit` when committing. See the documentation of [Commitizen](https://github.com/commitizen/cz-cli) for more information.
 
 <a href="#contributing" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
