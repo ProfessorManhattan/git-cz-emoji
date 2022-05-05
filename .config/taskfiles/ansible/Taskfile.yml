@@ -173,7 +173,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
@@ -252,11 +252,13 @@ tasks:
           fi
       VAULT_PASS:
         sh: |
+          {{if .VAULT_PASS}}echo '{{.VAULT_PASS}}'{{else}}
           if [ -f ~/.vault_pass ]; then
             echo '--vault-pass-file ~/.vault_pass'
           else
             echo '--ask-vault-pass'
           fi
+          {{end}}
     log:
       error: Error occurred while running the Ansible play
       start: Running the Ansible play locally
