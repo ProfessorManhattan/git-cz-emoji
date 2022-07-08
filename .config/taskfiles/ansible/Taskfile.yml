@@ -173,7 +173,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
@@ -268,7 +268,7 @@ tasks:
         if [ ! -f .cache/playbook-quickstart-demo-called ]; then
           echo "cd $PWD" >> ~/.config/ansible-playbook-continue-command
           echo 'task ansible:quickstart:cli -- {{.INVENTORY}}' >> ~/.config/ansible-playbook-continue-command
-          mkdir .cache && touch .cache/playbook-quickstart-demo-called
+          mkdir -p .cache && touch .cache/playbook-quickstart-demo-called
           .config/log info 'Prompting for sudo / vault password'
         fi
       - >
