@@ -113,7 +113,7 @@ tasks:
         vars:
           KEYID: '{{.KEYID}}'
       # - task: revocation:export
-      #   vVrs:
+      #   vars:
       #     KEYID: '{{.KEYID}}'
       - task: secrets:export
         vars:
