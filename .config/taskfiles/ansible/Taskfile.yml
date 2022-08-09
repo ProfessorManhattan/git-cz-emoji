@@ -144,7 +144,7 @@ tasks:
         fi
         jq -r --argjson result "$MERGED_TAGS" '.keywords = $result' package.json > "$TMP"
         mv "$TMP" package.json
-        {{.NPX_HANDLE}}prettier --write package.json > /dev/null
+        prettier --write package.json > /dev/null
         mkdir -p .cache/megabytelabs
         jq -n --argjson result "$RESULT" --argjson gi "$GALAXY_INFO" '$gi | .galaxy_info.galaxy_tags = $result' > .cache/megabytelabs/galaxy-meta.json
         yq eval -P .cache/megabytelabs/galaxy-meta.json > meta/main.yml
@@ -173,7 +173,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
