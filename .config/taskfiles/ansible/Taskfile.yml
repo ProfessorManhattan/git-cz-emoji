@@ -182,7 +182,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
@@ -317,7 +317,7 @@ tasks:
           task ansible:quickstart:cli -- "$TARGET_INV"
         else
           .config/log warn "MAC address missing from inventory-map.json ($MAC_ADDRESS)"
-          
+
         fi
     status:
       - '[ ! -f files/inventory-map.json ]'
