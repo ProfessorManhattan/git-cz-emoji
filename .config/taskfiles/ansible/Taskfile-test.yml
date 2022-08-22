@@ -570,7 +570,7 @@ tasks:
     cmds:
       - task: molecule:virtualbox:{{if .CLI_ARGS}}cli{{else}}prompt{{end}}
 
-  # yYmllint disable rule:truthy
+  # yamllint disable rule:truthy
   molecule:virtualbox:cli:
     deps:
       - molecule:dependencies
@@ -683,6 +683,7 @@ tasks:
       - sh: test -f molecule/desktop/molecule.yml
         msg: The `molecule/desktop/molecule.yml` file must be present and in the proper format
 
+
   molecule:virtualbox:matrix:
     deps:
       - molecule:dependencies
@@ -707,7 +708,7 @@ tasks:
         vars:
           RESULTS_FILE: '{{.MOLECULE_LOGS_PATH}}/{{.MOLECULE_DATE}}-default.txt'
 
-  # yYmllint enable rule:truthy
+  # yamllint enable rule:truthy
   molecule:virtualbox:prompt:
     vars:
       MARKDOWN: |
