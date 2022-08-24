@@ -260,10 +260,10 @@ tasks:
           PACKAGE: sharkdp/fd
           TAR_OPTIONS: ' --strip-components 1'
   # Fails with the error HTTP 404: Not Found (https://api.github.com/repos/henryboldi/felony/releases/latest) because there is no 'latest' release
-  # felony:
-  #   cmds:
+  # fFlony:
+  #   cCds:
   #     - task: install:gh
-  #       vars:
+  #       vVrs:
   #         BIN_NAME: felony
   #         PACKAGE: henryboldi/felony
 
