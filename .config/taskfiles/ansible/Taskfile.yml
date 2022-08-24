@@ -178,7 +178,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
@@ -384,6 +384,7 @@ tasks:
       MAC_ADDRESS_EXPLANATION: '{{.MAC_ADDRESS_EXPLANATION}}'
     cmds:
       - |
+        PATH="$PATH:$HOME/.local/bin"
         # MAC_ADDRESS="$(cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/address)" # Does not work on macOS
         MAC_ADDRESS="$(getmac)"
         TARGET_INV="$(jq --arg macAddress "$MAC_ADDRESS" -r '.[$macAddress]' files/inventory-map.json)"
