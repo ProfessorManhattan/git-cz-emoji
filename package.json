@@ -46,8 +46,8 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commitizen": "^4.2.5",
-    "tslib": "latest",
-    "word-wrap": "^1.2.3"
+    "word-wrap": "^1.2.3",
+    "tslib": "latest"
   },
   "peerDependenciesMeta": {
     "eslint": {
@@ -56,18 +56,18 @@
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "latest",
     "@types/node": "^16.11.52",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.4.1",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
     "prettier": "^2.7.1",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "@commitlint/config-conventional": "latest",
+    "handlebars-helpers": "latest"
   },
   "keywords": [
     "commit",
