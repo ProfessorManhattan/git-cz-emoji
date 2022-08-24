@@ -178,7 +178,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
@@ -344,7 +344,7 @@ tasks:
       {{.MAC_ADDRESS_EXPLANATION}}
     vars:
       INVENTORY_OPTIONS:
-        sh: echo "\"inventories"$(find ./inventories/ -mindepth 1 -maxdepth 1 | sed 's/\.\/inventories\///' | jq -R '[.]' | jq -s -c -r 'add | join("\" \"inventories")')"\""
+        sh: echo "\""$(find ./inventories/ -mindepth 1 -maxdepth 1 | sed 's/\.\/inventories\//inventories\//' | jq -R '[.]' | jq -s -c -r 'add | join("\" \"")')"\""
       INVENTORY_OPTIONS_LENGTH:
         sh: find ./inventories/ -mindepth 1 -maxdepth 1 | sed 's/\.\/inventories\///' | jq -R '[.]' | jq -s -c -r 'add | length'
       MAC_ADDRESS_EXPLANATION: |
