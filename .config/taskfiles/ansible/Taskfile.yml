@@ -84,16 +84,6 @@ tasks:
       - '[ -z "$ANSIBLE_GALAXY_TOKEN" ]'
 
   galaxy:requirements:
-    run: once
-    cmds:
-      - task: galaxy:requirements:install
-    sources:
-      - requirements.yml
-    preconditions:
-      - sh: test -f requirements.yml
-        msg: The requirements.yml file is missing! It should be present even if it is empty (which should almost never be the case).
-
-  galaxy:requirements:install:
     log:
       error: Error encountered while installing the Ansible Galaxy requirements specified in `requirements.yml`
       start: Installing the Ansible Galaxy requirements specified in `requirements.yml`
@@ -105,8 +95,8 @@ tasks:
         fi
       - cmd: '{{.PYTHON_HANDLE}} ansible-galaxy install -r requirements.yml --ignore-errors'
         ignore_error: true
-    status:
-      - '[[ "${container:=}" == "docker" ]]'
+    sources:
+      - requirements.yml
 
   init:
     cmds:
@@ -178,7 +168,7 @@ tasks:
       ACTIONS_DESCRIPTION:
         sh: jq -r '.autodoc_actions_description' '{{.VARIABLES_PATH}}'
       # PATH:
-      #   sS: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
+      #   sh: echo "$PATH:$(poetry env info | grep 'Python   /' | sed 's/Python   //')"
       TAGS_DESCRIPTION:
         sh: jq -r '.autodoc_tags_description' '{{.VARIABLES_PATH}}'
       TODO_DESCRIPTION:
