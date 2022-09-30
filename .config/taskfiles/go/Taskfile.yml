@@ -76,12 +76,12 @@ tasks:
       Unsure why this is here and how it is useful.
     cmds:
       - .config/log warn 'Unused step go:publish:after:docker - pay attention to this only for debugging purposes'
-    # cCds:
+    # cmds:
     #   - |
-    #     fFr FILE in build/goreleaserdocker*; do
+    #     for FILE in build/goreleaserdocker*; do
     #       [ -e "$FILE" ] && task --dir "$FILE" docker:verify docker:build docker:publish
-    #       bBeak
-    #     dDne
+    #       break
+    #     done
     #   - rm -rf build/goreleaserdocker*
 
   publish:after:fury:
