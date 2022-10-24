@@ -68,7 +68,7 @@ tasks:
     status:
       - grep 'org.opencontainers.image.documentation' Dockerfile
 
-  # yYmllint disable rule:line-length
+  # yamllint disable rule:line-length
   labels:update:
     vars:
       AUTHORS:
@@ -99,7 +99,7 @@ tasks:
         {{.CMD_PREFIX}} "s^.*org.opencontainers.image.url.*^LABEL org.opencontainers.image.url=\"{{.URL}}\"^g" Dockerfile
         {{.CMD_PREFIX}} "s^.*org.opencontainers.image.vendor.*^LABEL org.opencontainers.image.vendor=\"{{.ORGANIZATION}}\"^g" Dockerfile
       - rm -f Dockerfile.bak
-  # yYmllint enable rule:line-length
+  # yamllint enable rule:line-length
 
   sort:
     todo: Make this remove duplicates using a command like `uniq -u`
@@ -136,7 +136,7 @@ tasks:
         else
           CURR_VERSION="$(jq -r '.version' package.json)"
           TMP="$(mktemp)"
-          jq --arg version "$(jq --arg v "$VERSION" '$v' package.json |  sed 's/^[^0-9]*//' | sed 's/[^0-9]*$//')" '.version = $version' package.json > "$TMP"
+          jq --arg version "$VERSION" '.version = $version' package.json > "$TMP"
           mv "$TMP" package.json
           if [ "$CURR_VERSION" != "$(jq -r '.version' package.json)" ]; then
             .config/log info 'Updating documentation with new software version'
